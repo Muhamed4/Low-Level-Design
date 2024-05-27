@@ -1,0 +1,32 @@
+* Make filtration for the cinemas by the city.
+
+* Cinemas can have multiple halls and each hall can run one movie at a time.
+
+* within a day each movie can have multiple shows.
+
+* A user can search for a movie by their title, language, release date, and city name.
+
+* When the user select a movie , the system should display all Cinemas showing that movie.
+
+* A user can select the cinema and book a ticket.
+
+* The system should redirect the user to sitting arrangement and user should be able to select the seats.
+
+* The user should be able to complete the payment
+
+
+Notes :
+
+- Same seat cannot be booked by multiple users.
+
+- User should be able to cancel the ticket.
+
+
+* Main Entities :
+    - System
+    - User (Customer - Admin) ------> (id, name, email, password)
+    - Cinema ----> (id, name, city, halls)
+    - Halls ----->(id, name, seats)
+    - Movies ---->(id, title, description, rate, language, release date)
+    - Shows ---->(id, cinemaId, movieId, day)
+    - Ticket ---->(id, userId, cinemaId, movieId, numberOfSeats, totalPrice, date)

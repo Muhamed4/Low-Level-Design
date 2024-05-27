@@ -1,0 +1,14 @@
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\bin\Debug\net8.0\BookMyShow.exe
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\bin\Debug\net8.0\BookMyShow.deps.json
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\bin\Debug\net8.0\BookMyShow.runtimeconfig.json
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\bin\Debug\net8.0\BookMyShow.dll
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\bin\Debug\net8.0\BookMyShow.pdb
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\BookMyShow.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\BookMyShow.AssemblyInfoInputs.cache
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\BookMyShow.AssemblyInfo.cs
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\BookMyShow.csproj.CoreCompileInputs.cache
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\BookMyShow.dll
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\refint\BookMyShow.dll
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\BookMyShow.pdb
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\BookMyShow.genruntimeconfig.cache
+D:\projects\C#Projects\Visual_Studio_Code\BookMyShow\obj\Debug\net8.0\ref\BookMyShow.dll
