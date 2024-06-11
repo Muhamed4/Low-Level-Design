@@ -14,4 +14,8 @@ This repository is dedicated to my practice and exploration of low-level design 
   * To create efficient and maintainable code.
   * To document and share insights and best practices.
 
+## Resources :
+
+  * [Low Level Design (Playlist)](https://youtube.com/playlist?list=PLAC2AM9O1C5KioUMeH9qIjbAV_RMmX8rd&si=3di9Y_1XFAzvdJpM)
+
 ### Feel free to explore, contribute, and provide feedback!
