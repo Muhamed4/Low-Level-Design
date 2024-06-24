@@ -5,16 +5,17 @@ using System.Threading.Tasks;
 
 namespace Parking_Lot_System_C_
 {
-    public class Vehicle
+    public abstract class Vehicle
     {
-        public string Model { get; private set; }
-        public string Color { get; private set; }
-        public Type Type { get; private set; }
-        public Vehicle(string model, string color, Type type)
-        {
-            this.Model = model;
-            this.Color = color;
-            this.Type = type;
+        public string License { get; private set; }
+        public bool HandiCappedLicensePlate { get; private set; } 
+        public VehicleType VehicleType { get; private set; }
+        protected Vehicle(string license, bool handiCappedLicensePlate, VehicleType vehicleType) {
+            this.License = license;
+            this.HandiCappedLicensePlate = handiCappedLicensePlate;
+            this.VehicleType = vehicleType;
         }
+        public abstract VehicleType GetVehicleType();
+        public bool IsHandiCapped() => HandiCappedLicensePlate;
     }
 }
