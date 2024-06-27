@@ -12,7 +12,18 @@ namespace Parking_Lot_System_C_
         private List<ParkingFloor> parkingFloors;
         private List<EntryPoint> entryPoints;
         private List<ExitPoint> exitPoints;
-
+        private List<Ticket> tickets;
+        public bool ParkingVehicle(EntryPoint entryPoint, Vehicle vehicle) {
+            if (vehicle is null)
+                return false;
+            ParkingSpot? parkingSpot = entryPoint.GetFreeParkingSpot(vehicle.VehicleType, parkingFloors);
+            if (parkingSpot is null)
+                return false;
+            parkingSpot.ParkVehicle(vehicle);
+            return true;
+        }
+        public bool FreeParkingSpot(ExitPoint exitPoint, Ticket ticket)
+            => exitPoint.FreeParkingSpot(ticket); 
         public bool isFull(VehicleType vehicleType) {
             int TotalParkingSpot = 0;
             if(vehicleType == VehicleType.TRUCK || vehicleType == VehicleType.VAN)

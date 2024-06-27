@@ -7,6 +7,11 @@ namespace Parking_Lot_System_C_
 {
     public class ExitPoint
     {
+        public string ExitId { get; private set; }
+        public ExitPoint(string exitId)
+        {
+            ExitId = exitId;
+        }
         private CreditCardPayment creditCardPayment;
         public ExitPoint(CreditCardPayment _creditCardPayment) {
             this.creditCardPayment = _creditCardPayment;
@@ -19,5 +24,7 @@ namespace Parking_Lot_System_C_
 
         public double PayTicket(Ticket ticket) 
             => this.creditCardPayment.MakePayment(ticket);
+
+        public bool FreeParkingSpot(Ticket ticket) => ticket.ParkingSpot.UnParkVehicle();
     }
 }
