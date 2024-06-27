@@ -11,7 +11,6 @@ namespace Parking_Lot_System_C_
         public Address Address { get; private set; }
         public string Email { get; private set; }
         public string Phone { get; private set; }
-        public Person() { }
         public Person(string name, Address address, string email, string phone) {
             this.Name = name;
             this.Address = address;
