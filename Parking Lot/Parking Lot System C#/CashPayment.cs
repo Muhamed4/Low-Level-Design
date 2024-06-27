@@ -18,5 +18,7 @@ namespace Parking_Lot_System_C_
             ticket.Paid();
             return amount;
         }
+
+        public void Paid(Ticket ticket) => ticket.Paid();
     }
 }

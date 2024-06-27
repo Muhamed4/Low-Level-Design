@@ -7,9 +7,9 @@ namespace Parking_Lot_System_C_
 {
     public abstract class Account
     {
-        public string UserName { get; private set; }
-        public string Password { get; private set; }
-        public AccountStatus AccountStatus { get; private set; }
-        public Person Person { get; private set; }
+        public string UserName { get; protected set; }
+        public string Password { get; protected set; }
+        public AccountStatus AccountStatus { get; protected set; }
+        public Person Person { get; protected set; }
     }
 }

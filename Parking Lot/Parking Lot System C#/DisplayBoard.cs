@@ -8,9 +8,10 @@ namespace Parking_Lot_System_C_
     public class DisplayBoard
     {
         private string floorTitle;
-        public DisplayBoard(string _floorTitle)
+        public DisplayBoard(string _floorTitle, ref Action<int, int ,int ,int, int> _showMessage)
         {
             this.floorTitle = _floorTitle;
+            _showMessage += ShowMessage;
         }
         public void ShowMessage(int NHandiCapped, int NCompact, int NLarge, int NMotorBike, int NElectric) {
             Console.WriteLine(floorTitle);
