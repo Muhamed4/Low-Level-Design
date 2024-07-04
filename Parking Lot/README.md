@@ -2,7 +2,7 @@
 
 1. The parking lot should have multiple floors.
 
-2. The parking lot should have multiple entry and exit points.
+2. The parking lot should have multiple entry and exit points and support concurrent access.
 
 3. Customers can collect a parking ticket from the entry points and can pay the parking fee at the exit points on their way out.
 
