@@ -16,15 +16,18 @@ namespace Parking_Lot_System_C_
         public ExitPoint(CreditCardPayment _creditCardPayment) {
             this.creditCardPayment = _creditCardPayment;
         }
-        public bool ScanTicket(Ticket ticket) {
-            if(ticket == null || ticket.PaymentStatus == PaymentStatus.ACTIVE)
-                return false;
-            return true;
+        public async Task<bool> ScanTicket(Ticket ticket) {
+            return await Task.Run(() => {
+                if(ticket == null || ticket.PaymentStatus == PaymentStatus.ACTIVE)
+                    return false;
+                return true;
+            });
         }
 
-        public double PayTicket(Ticket ticket) 
-            => this.creditCardPayment.MakePayment(ticket);
+        public async Task<double> PayTicket(Ticket ticket) 
+            => await Task.Run(() => creditCardPayment.MakePayment(ticket));
 
-        public bool FreeParkingSpot(Ticket ticket) => ticket.ParkingSpot.UnParkVehicle();
+        public Task<bool> FreeParkingSpot(Ticket ticket) => 
+            Task.Run(() => ticket.ParkingSpot.UnParkVehicle());
     }
 }

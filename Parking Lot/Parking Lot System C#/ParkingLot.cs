@@ -10,20 +10,35 @@ namespace Parking_Lot_System_C_
         private string name;
         private Address address;
         private List<ParkingFloor> parkingFloors;
-        private List<EntryPoint> entryPoints;
-        private List<ExitPoint> exitPoints;
+        private EntryPoint entryPoint;
+        private ExitPoint exitPoint;
         private List<Ticket> tickets;
-        public bool ParkingVehicle(EntryPoint entryPoint, Vehicle vehicle) {
+        // private readonly object locker = new object();
+        public async Task<bool> ParkingVehicle(Vehicle vehicle) {
             if (vehicle is null)
                 return false;
-            ParkingSpot? parkingSpot = entryPoint.GetFreeParkingSpot(vehicle.VehicleType, parkingFloors);
-            if (parkingSpot is null)
-                return false;
-            parkingSpot.ParkVehicle(vehicle);
-            return true;
+                
+            ParkingSpot? parkingSpot = null;
+            bool isParked = true;
+            await Task.Run(() => {
+                parkingSpot = entryPoint.GetFreeParkingSpot(vehicle, vehicle.VehicleType, parkingFloors);
+                if (parkingSpot is null)
+                    isParked = false;
+            });
+
+            if(isParked == true) {
+                Ticket ticket = await entryPoint.GenerateTicket(name, parkingSpot, vehicle); 
+                tickets.Add(ticket);
+            }
+            return isParked;
         }
-        public bool FreeParkingSpot(ExitPoint exitPoint, Ticket ticket)
-            => exitPoint.FreeParkingSpot(ticket); 
+
+        public async Task<bool> FreeParkingSpot(Ticket ticket) {
+            if(ticket is null)
+                return false;
+            return await exitPoint.FreeParkingSpot(ticket);
+        } 
+        
         public bool isFull(VehicleType vehicleType) {
             int TotalParkingSpot = 0;
             if(vehicleType == VehicleType.TRUCK || vehicleType == VehicleType.VAN)
