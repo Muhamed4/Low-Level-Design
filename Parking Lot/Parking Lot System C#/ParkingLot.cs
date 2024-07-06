@@ -27,7 +27,7 @@ namespace Parking_Lot_System_C_
             });
 
             if(isParked == true) {
-                Ticket ticket = await entryPoint.GenerateTicket(name, parkingSpot, vehicle); 
+                Ticket ticket = await entryPoint.GenerateTicket(name, parkingSpot, vehicle.vehicleType); 
                 tickets.Add(ticket);
             }
             return isParked;

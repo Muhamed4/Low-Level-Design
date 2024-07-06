@@ -29,6 +29,8 @@
 
 ## Class Diagram :
 
+![Parking Lot Class Diagram](Images/ParkingLotClassDiagram.png)
+
 ## Resources :
 
 * [Design Parking Lot | Object Oriented System Design Question | Amazon Interview Question](https://www.youtube.com/watch?v=nwioCA5nrYc)

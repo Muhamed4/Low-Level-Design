@@ -32,11 +32,9 @@ namespace Parking_Lot_System_C_
                 _showMessage?.Invoke(NHandiCapped, NCompactSpot, NLarge, NMotorBike, NElectric);
             }
         }
-        public void AddParkingSpot(ParkingSpot parkingSpot) {
-            if(parkingSpot == null) {
-                Console.WriteLine("Invalid Operation try again ....!");
-                return;
-            }
+        public bool AddParkingSpot(ParkingSpot parkingSpot) {
+            if(parkingSpot == null) 
+                return false;
             switch (parkingSpot.GetParkingSpotType())
             {
                 case ParkingSpotType.HANDICAPPED:
@@ -56,9 +54,10 @@ namespace Parking_Lot_System_C_
                     break;
                 default:
                     Console.WriteLine("Invalid Parking Spot Type");
-                    break;
+                    return false;
             }
             this.Publish();
+            return true;
         }
 
         public bool RemoveParkingSpot(ParkingSpot parkingSpot) {

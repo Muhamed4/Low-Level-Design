@@ -13,9 +13,9 @@ namespace Parking_Lot_System_C_
         {
             EntryId = entyrId;
         }
-        public Task<Ticket> GenerateTicket(string floorTitle, ParkingSpot parkingSpot, Vehicle vehicle)
+        public Task<Ticket> GenerateTicket(string floorTitle, ParkingSpot parkingSpot, VehicleType vehicleType)
             => Task.Run(() => {
-                return new Ticket(floorTitle, parkingSpot, vehicle);
+                return new Ticket(floorTitle, parkingSpot, vehicleType);
             });
 
         public ParkingSpot? GetFreeParkingSpot(Vehicle vehicle, VehicleType vehicleType, List<ParkingFloor> parkingFloors) {
