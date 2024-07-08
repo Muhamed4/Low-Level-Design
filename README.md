@@ -16,6 +16,8 @@ This repository is dedicated to my practice and exploration of low-level design 
 
 ## Resources :
 
+  * [Low Level Design](https://github.com/ashishps1/awesome-low-level-design?tab=readme-ov-file)
+
   * [Low Level Design (Playlist)](https://youtube.com/playlist?list=PLAC2AM9O1C5KioUMeH9qIjbAV_RMmX8rd&si=3di9Y_1XFAzvdJpM)
 
 ### Feel free to explore, contribute, and provide feedback!
