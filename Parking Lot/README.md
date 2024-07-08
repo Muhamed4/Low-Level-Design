@@ -27,6 +27,7 @@
 
 ## Activity Diagram :
 
+![Parking Lot Activity Diagram](Images/ParkingLotActivityDiagram.png)
 
 ## Class Diagram :
 
