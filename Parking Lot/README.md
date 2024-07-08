@@ -23,6 +23,7 @@
 
 ## Use Case Diagram :
 
+![Parking Lot Use Case Diagram](Images/ParkingLotUseCaseDiagram.png)
 
 ## Activity Diagram :
 
