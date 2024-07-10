@@ -27,7 +27,7 @@ namespace Parking_Lot_System_C_
             });
 
             if(isParked == true) {
-                Ticket ticket = await entryPoint.GenerateTicket(name, parkingSpot, vehicle.vehicleType); 
+                Ticket ticket = await Ticket.GenerateTicket(name, parkingSpot, vehicle.VehicleType); 
                 tickets.Add(ticket);
             }
             return isParked;
@@ -39,23 +39,10 @@ namespace Parking_Lot_System_C_
             return await exitPoint.FreeParkingSpot(ticket);
         } 
         
-        public bool isFull(VehicleType vehicleType) {
-            int TotalParkingSpot = 0;
-            if(vehicleType == VehicleType.TRUCK || vehicleType == VehicleType.VAN)
-                TotalParkingSpot = parkingFloors.Where(p => p.largeSpots.Count > 0).Count();
-            if(vehicleType == VehicleType.MOTORBIKE)
-                TotalParkingSpot = parkingFloors.Where(p => p.motorBikeSpots.Count > 0).Count();
-            if(vehicleType == VehicleType.CAR)
-                TotalParkingSpot = parkingFloors.Where(p => p.largeSpots.Count > 0 || p.compactSpots.Count > 0).Count();
-            if(vehicleType == VehicleType.ELECTRIC)
-                TotalParkingSpot = parkingFloors.Where(p => p.largeSpots.Count > 0 || p.compactSpots.Count > 0 || p.electricSpots.Count > 0).Count();
-            return TotalParkingSpot == 0;
-        }
+        public bool isFull(VehicleType vehicleType) 
+            => Full.isFull(vehicleType, parkingFloors);
 
-        public bool isFull() {
-            int TotalParkingSpot = parkingFloors.Where(p => p.largeSpots.Count > 0 || p.compactSpots.Count > 0 
-                                                        || p.electricSpots.Count > 0 || p.motorBikeSpots.Count > 0).Count();
-            return TotalParkingSpot == 0;
-        }
+        public bool isFull() 
+            => Full.isFull(parkingFloors);
     }
 }

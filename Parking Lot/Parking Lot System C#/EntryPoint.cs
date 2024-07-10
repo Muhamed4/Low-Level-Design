@@ -9,42 +9,47 @@ namespace Parking_Lot_System_C_
     {
         public string EntryId { get; private set; }
         private readonly object _locker = new object();
-        public EntryPoint(string entyrId)
+        public EntryPoint(string entryId)
         {
-            EntryId = entyrId;
+            EntryId = entryId;
         }
-        public Task<Ticket> GenerateTicket(string floorTitle, ParkingSpot parkingSpot, VehicleType vehicleType)
-            => Task.Run(() => {
-                return new Ticket(floorTitle, parkingSpot, vehicleType);
-            });
-
+        
         public ParkingSpot? GetFreeParkingSpot(Vehicle vehicle, VehicleType vehicleType, List<ParkingFloor> parkingFloors) {
             lock (_locker) {
                 ParkingSpot? freeParkingSpot = null;
+                ParkingFloor parkingFloor = null;
                 foreach(var item in parkingFloors) {
                     if(vehicleType == VehicleType.TRUCK || vehicleType == VehicleType.VAN) {
                         freeParkingSpot = item.largeSpots.Where(p => p.GetParkingSpotStatus() == ParkingSpotStatus.UNOCCUPIED).FirstOrDefault();
-                        if(freeParkingSpot is not null)
+                        if(freeParkingSpot is not null) {
+                            parkingFloor = item;
                             break;
+                        }
                     }
                     if(vehicleType == VehicleType.CAR || vehicleType == VehicleType.ELECTRIC) {
                         freeParkingSpot = item.compactSpots.Where(p => p.GetParkingSpotStatus() == ParkingSpotStatus.UNOCCUPIED).FirstOrDefault();
-                        if(freeParkingSpot is not null)
+                        if(freeParkingSpot is not null) {
+                            parkingFloor = item;
                             break;
+                        }
                     }
                     if(vehicleType == VehicleType.ELECTRIC) {
                         freeParkingSpot = item.electricSpots.Where(p => p.GetParkingSpotStatus() == ParkingSpotStatus.UNOCCUPIED).FirstOrDefault();
-                        if(freeParkingSpot is not null)
+                        if(freeParkingSpot is not null) {
+                            parkingFloor = item;
                             break;
+                        }
                     }
                     if(vehicleType == VehicleType.MOTORBIKE) {
                         freeParkingSpot = item.motorBikeSpots.Where(p => p.GetParkingSpotStatus() == ParkingSpotStatus.UNOCCUPIED).FirstOrDefault();
-                        if(freeParkingSpot is not null)
+                        if(freeParkingSpot is not null) {
+                            parkingFloor = item;
                             break;
+                        }
                     }
                 }
-                if (freeParkingSpot is not null) 
-                    freeParkingSpot.ParkVehicle(vehicle);
+                if (freeParkingSpot is not null && parkingFloor is not null) 
+                    parkingFloor.AssignVehicle(vehicle, freeParkingSpot);
                 return freeParkingSpot;
             }
         }

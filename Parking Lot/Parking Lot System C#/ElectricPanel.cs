@@ -15,20 +15,18 @@ namespace Parking_Lot_System_C_
             StartCharging = DateTime.Now;
             EndCharging = DateTime.Now;
         } 
-        public bool BeginCharge() {
-            StartCharging = DateTime.Now;
-            return true;
-        }
-        public bool EndCharge() {
-            EndCharging = DateTime.Now;
-            return true;
-        }
-
+        public void BeginCharge() => StartCharging = DateTime.Now;
+        public void EndCharge() => EndCharging = DateTime.Now;
         public double PayForCharge() {
-            TimeSpan timeSpan = EndCharging - StartCharging;
-            double numOfMinuetsForCharging = timeSpan.TotalMinutes;
+            double numOfMinuetsForCharging = TotalMinutes();
             double totalAmountForCharging = CreditCardPayment.PayForCharge(numOfMinuetsForCharging);
             return totalAmountForCharging;
+        }
+
+        private double TotalMinutes() {
+            TimeSpan timeSpan = EndCharging - StartCharging;
+            double numOfMinuetsForCharging = timeSpan.TotalMinutes;
+            return numOfMinuetsForCharging;
         }
 
     }

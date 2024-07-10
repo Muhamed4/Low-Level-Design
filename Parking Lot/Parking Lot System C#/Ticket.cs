@@ -21,16 +21,15 @@ namespace Parking_Lot_System_C_
             this.EntryTime = DateTime.Now;
             this.PaymentStatus = PaymentStatus.ACTIVE;
         }
+        
+        public static Task<Ticket> GenerateTicket(string floorTitle, ParkingSpot parkingSpot, VehicleType vehicleType)
+            => Task.Run(() => {
+                return new Ticket(floorTitle, parkingSpot, vehicleType);
+            });
 
         public void Paid() => PaymentStatus = PaymentStatus.PAID;
         
-        public void PrintInformation() {
-            Console.WriteLine($"Ticket ID:\t {TicketId}");
-            Console.WriteLine($"Floor Title:\t {FloorTitle}");
-            Console.WriteLine($"Parking Spot ID:\t {ParkingSpot.GetParkingSpotId()}");
-            Console.WriteLine($"Parking Spot Type:\t {ParkingSpot.GetParkingSpotType()}");
-            // Console.WriteLine($"Vehicle License:\t {Vehicle.License}");
-            Console.WriteLine($"Vehicle Type:\t {VehicleType}");
-        }
+        public void PrintInformation() 
+            => PrintManager.PrintInformation(TicketId, FloorTitle, ParkingSpot, VehicleType);
     }
 }

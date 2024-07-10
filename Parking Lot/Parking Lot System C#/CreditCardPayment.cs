@@ -22,6 +22,6 @@ namespace Parking_Lot_System_C_
         }
 
         public double PayForCharge(double numOfMinuetsForCharging) 
-            => numOfMinuetsForCharging / 60.00 * PRICE_PAIR_HOUR_FOR_CHARGE;
+            => Charge.TotalAmountForCharge(numOfMinuetsForCharging, PRICE_PAIR_HOUR_FOR_CHARGE);
     }
 }
