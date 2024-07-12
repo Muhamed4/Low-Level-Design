@@ -29,5 +29,25 @@ namespace Parking_Lot_System_C_
             ParkingSpotStatus = ParkingSpotStatus.OCCUPIED;
             return true;
         }
+
+        public override bool AddParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor)
+        {
+            if(parkingSpot is null || parkingFloor is null)
+                return false;
+            var electricSpot = (ElectricSpot)parkingSpot;
+            parkingFloor.electricSpots.Add(electricSpot);
+            return true;
+        }
+
+        public override bool RemoveParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor)
+        {
+            if(parkingSpot is null || parkingFloor is null)
+                return false;
+            var electricSpot = (ElectricSpot)parkingSpot;
+            if(parkingFloor.electricSpots.Contains(electricSpot) == false)
+                return false;
+            parkingFloor.electricSpots.Remove(electricSpot);
+            return true;
+        }
     }
 }

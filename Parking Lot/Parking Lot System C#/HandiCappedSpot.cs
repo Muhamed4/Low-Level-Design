@@ -11,6 +11,15 @@ namespace Parking_Lot_System_C_
                             ParkingSpotStatus parkingSpotStatus)
                             : base(parkingId, ParkingSpotType.HANDICAPPED, parkingSpotStatus) { }
 
+        public override bool AddParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor)
+        {
+            if(parkingSpot is null || parkingFloor is null)
+                return false;
+            var handiCappedSpot = (HandiCappedSpot)parkingSpot;
+            parkingFloor.handiCappedSpots.Add(handiCappedSpot);
+            return true;
+        }
+
         public override int GetParkingSpotId() => ParkingSpotId;
 
         public override ParkingSpotStatus GetParkingSpotStatus() => ParkingSpotStatus;
@@ -25,6 +34,17 @@ namespace Parking_Lot_System_C_
                 return false;
             Vehicle = vehicle;
             ParkingSpotStatus = ParkingSpotStatus.OCCUPIED;
+            return true;
+        }
+
+        public override bool RemoveParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor)
+        {
+            if(parkingSpot is null || parkingFloor is null)
+                return false;
+            var handiCappedSpot = (HandiCappedSpot)parkingSpot;
+            if(parkingFloor.handiCappedSpots.Contains(handiCappedSpot) == false)
+                return false;
+            parkingFloor.handiCappedSpots.Remove(handiCappedSpot);
             return true;
         }
     }

@@ -53,5 +53,25 @@ namespace Parking_Lot_System_C_
                 return freeParkingSpot;
             }
         }
+
+        // Applying Open / Closed Principle
+        public ParkingSpot? GetFreeParkingSpotOCP(Vehicle vehicle, List<ParkingFloor> parkingFloors) {
+            lock (_locker) {
+                ParkingSpot? freeParkingSpot = null;
+                ParkingFloor parkingFloor = null;
+                foreach(var item in parkingFloors) {
+                    List<ParkingSpot> parkingSpots = vehicle.GetSuitableParkingSpots(item);
+                    freeParkingSpot = parkingSpots.Where(p => p.GetParkingSpotStatus() == ParkingSpotStatus.UNOCCUPIED).FirstOrDefault();
+                    if(freeParkingSpot is not null) {
+                        parkingFloor = item;
+                        break;
+                    }
+                }
+                if (freeParkingSpot is not null && parkingFloor is not null) 
+                    parkingFloor.AssignVehicle(vehicle, freeParkingSpot);
+                    
+                return freeParkingSpot;
+            }
+        }
     }
 }

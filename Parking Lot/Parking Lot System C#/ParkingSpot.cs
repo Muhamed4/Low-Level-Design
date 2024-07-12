@@ -22,6 +22,8 @@ namespace Parking_Lot_System_C_
         public abstract ParkingSpotType GetParkingSpotType();
         public abstract ParkingSpotStatus GetParkingSpotStatus();
         public abstract Vehicle GetVehicle();
+        public abstract bool AddParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor);
+        public abstract bool RemoveParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor);
         public bool UnParkVehicle() {
             Vehicle = null;
             ParkingSpotStatus = ParkingSpotStatus.UNOCCUPIED;

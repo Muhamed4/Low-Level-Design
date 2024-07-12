@@ -32,57 +32,83 @@ namespace Parking_Lot_System_C_
                 _showMessage?.Invoke(NHandiCapped, NCompactSpot, NLarge, NMotorBike, NElectric);
             }
         }
+        // public bool AddParkingSpot(ParkingSpot parkingSpot) {
+        //     if(parkingSpot == null) 
+        //         return false;
+        //     switch (parkingSpot.GetParkingSpotType())
+        //     {
+        //         case ParkingSpotType.HANDICAPPED:
+        //             handiCappedSpots.Add((HandiCappedSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.COMPACT:
+        //             compactSpots.Add((CompactSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.LARGE:
+        //             largeSpots.Add((LargeSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.ELECTRIC:
+        //             electricSpots.Add((ElectricSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.MOTORBIKE:
+        //             motorBikeSpots.Add((MotorBikeSpot)parkingSpot);
+        //             break;
+        //         default:
+        //             Console.WriteLine("Invalid Parking Spot Type");
+        //             return false;
+        //     }
+        //     this.Publish();
+        //     return true;
+        // }
+
+
+        // Applying Open / Closed Principle
+
         public bool AddParkingSpot(ParkingSpot parkingSpot) {
             if(parkingSpot == null) 
                 return false;
-            switch (parkingSpot.GetParkingSpotType())
-            {
-                case ParkingSpotType.HANDICAPPED:
-                    handiCappedSpots.Add((HandiCappedSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.COMPACT:
-                    compactSpots.Add((CompactSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.LARGE:
-                    largeSpots.Add((LargeSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.ELECTRIC:
-                    electricSpots.Add((ElectricSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.MOTORBIKE:
-                    motorBikeSpots.Add((MotorBikeSpot)parkingSpot);
-                    break;
-                default:
-                    Console.WriteLine("Invalid Parking Spot Type");
-                    return false;
-            }
+            bool Ok = parkingSpot.AddParkingSpot(parkingSpot, this);
+            if(Ok == false)
+                return false;
             this.Publish();
             return true;
         }
 
+        // public bool RemoveParkingSpot(ParkingSpot parkingSpot) {
+        //     if(parkingSpot == null)
+        //         return false;
+        //     switch (parkingSpot.GetParkingSpotType())
+        //     {
+        //         case ParkingSpotType.HANDICAPPED:
+        //             handiCappedSpots.Remove((HandiCappedSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.COMPACT:
+        //             compactSpots.Remove((CompactSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.LARGE:
+        //             largeSpots.Remove((LargeSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.ELECTRIC:
+        //             electricSpots.Remove((ElectricSpot)parkingSpot);
+        //             break;
+        //         case ParkingSpotType.MOTORBIKE:
+        //             motorBikeSpots.Remove((MotorBikeSpot)parkingSpot);
+        //             break;
+        //         default:
+        //             return false;
+        //     }
+        //     this.Publish();
+        //     return true;
+        // }
+
+
+        // Applying Open / Closed Principle
+
         public bool RemoveParkingSpot(ParkingSpot parkingSpot) {
             if(parkingSpot == null)
                 return false;
-            switch (parkingSpot.GetParkingSpotType())
-            {
-                case ParkingSpotType.HANDICAPPED:
-                    handiCappedSpots.Remove((HandiCappedSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.COMPACT:
-                    compactSpots.Remove((CompactSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.LARGE:
-                    largeSpots.Remove((LargeSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.ELECTRIC:
-                    electricSpots.Remove((ElectricSpot)parkingSpot);
-                    break;
-                case ParkingSpotType.MOTORBIKE:
-                    motorBikeSpots.Remove((MotorBikeSpot)parkingSpot);
-                    break;
-                default:
-                    return false;
-            }
+            bool Ok = parkingSpot.RemoveParkingSpot(parkingSpot, this);
+            if(Ok == false)
+                return false;
             this.Publish();
             return true;
         }
@@ -90,7 +116,9 @@ namespace Parking_Lot_System_C_
         public bool AssignVehicle(Vehicle vehicle, ParkingSpot parkingSpot) {
             if(vehicle is null || parkingSpot is null)
                 return false;
-            parkingSpot.ParkVehicle(vehicle);
+            bool Ok = parkingSpot.ParkVehicle(vehicle);
+            if(Ok == false)
+                return false;
             this.Publish();
             return true;
         }
@@ -98,7 +126,9 @@ namespace Parking_Lot_System_C_
         public bool UnAssignVehicle(ParkingSpot parkingSpot) {
             if(parkingSpot == null)
                 return false;
-            parkingSpot.UnParkVehicle();
+            bool Ok = parkingSpot.UnParkVehicle();
+            if(Ok == false)
+                return false;
             this.Publish();
             return true;
         }

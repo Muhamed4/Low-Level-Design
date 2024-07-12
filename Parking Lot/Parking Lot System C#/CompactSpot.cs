@@ -10,6 +10,15 @@ namespace Parking_Lot_System_C_
         public CompactSpot(int parkingSpotId, ParkingSpotStatus parkingSpotStatus)
             : base(parkingSpotId, ParkingSpotType.COMPACT, parkingSpotStatus) { }
 
+        public override bool AddParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor)
+        {
+            if(parkingSpot is null || parkingFloor is null)
+                return false;
+            var compactSpot = (CompactSpot)parkingSpot;
+            parkingFloor.compactSpots.Add(compactSpot);
+            return true;
+        }
+
         public override int GetParkingSpotId() => ParkingSpotId;
 
         public override ParkingSpotStatus GetParkingSpotStatus() => ParkingSpotStatus;
@@ -24,6 +33,17 @@ namespace Parking_Lot_System_C_
                 return false;
             Vehicle = vehicle;
             ParkingSpotStatus = ParkingSpotStatus.OCCUPIED;
+            return true;
+        }
+
+        public override bool RemoveParkingSpot(ParkingSpot parkingSpot, ParkingFloor parkingFloor)
+        {
+            if(parkingSpot is null || parkingFloor is null)
+                return false;
+            var compactSpot = (CompactSpot)parkingSpot;
+            if(parkingFloor.compactSpots.Contains(compactSpot) == false)
+                return false;
+            parkingFloor.compactSpots.Remove(compactSpot);
             return true;
         }
     }

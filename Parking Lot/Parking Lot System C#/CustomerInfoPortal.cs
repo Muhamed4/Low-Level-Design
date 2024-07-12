@@ -25,7 +25,7 @@ namespace Parking_Lot_System_C_
             TimeSpan timeSpan = dateTime - ticket.EntryTime;
             double totalMinuets = timeSpan.TotalMinutes;
             double amount = totalMinuets / 60.00 * PRICE_PAIR_HOUR_FOR_PARKING;
-            if (ticket.Vehicle.GetVehicleType() == VehicleType.ELECTRIC)
+            if (ticket.VehicleType == VehicleType.ELECTRIC)
                 amount = amount + totalMinuets / 60.00 * PRICE_PAIR_HOUR_FOR_CHARGE;
             return amount;
         }

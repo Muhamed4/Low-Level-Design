@@ -16,6 +16,8 @@ namespace Parking_Lot_System_C_
             this.VehicleType = vehicleType;
         }
         public abstract VehicleType GetVehicleType();
+        public abstract List<ParkingSpot> GetSuitableParkingSpots(ParkingFloor parkingFloor);
+        public abstract int GetTotalParkingSpots(List<ParkingFloor> parkingFloors);
         public bool IsHandiCapped() => HandiCappedLicensePlate;
     }
 }

@@ -42,6 +42,9 @@ namespace Parking_Lot_System_C_
         public bool isFull(VehicleType vehicleType) 
             => Full.isFull(vehicleType, parkingFloors);
 
+        public bool isFull(Vehicle vehicle) 
+            => Full.isFull(vehicle, parkingFloors);
+
         public bool isFull() 
             => Full.isFull(parkingFloors);
     }
