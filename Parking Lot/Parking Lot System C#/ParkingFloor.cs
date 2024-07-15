@@ -8,7 +8,7 @@ namespace Parking_Lot_System_C_
     public class ParkingFloor
     {
         private string title;
-        private DisplayBoard displayBoard;
+        private IShowMessage displayBoard;
         private CustomerInfoPortal customerInfoPortal;
         public List<HandiCappedSpot> handiCappedSpots { get; private set; }
         public List<CompactSpot> compactSpots  { get; private set; }

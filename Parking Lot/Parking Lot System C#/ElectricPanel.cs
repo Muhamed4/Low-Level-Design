@@ -7,11 +7,11 @@ namespace Parking_Lot_System_C_
 {
     public class ElectricPanel
     {
-        private CreditCardPayment CreditCardPayment;
+        private IPayCharge payCharge;
         private DateTime StartCharging;
         private DateTime EndCharging;
         public ElectricPanel(CreditCardPayment creditCardPayment) {
-            CreditCardPayment = creditCardPayment;
+            payCharge = creditCardPayment;
             StartCharging = DateTime.Now;
             EndCharging = DateTime.Now;
         } 
@@ -19,7 +19,7 @@ namespace Parking_Lot_System_C_
         public void EndCharge() => EndCharging = DateTime.Now;
         public double PayForCharge() {
             double numOfMinuetsForCharging = TotalMinutes();
-            double totalAmountForCharging = CreditCardPayment.PayForCharge(numOfMinuetsForCharging);
+            double totalAmountForCharging = payCharge.PayForCharge(numOfMinuetsForCharging);
             return totalAmountForCharging;
         }
 

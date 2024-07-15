@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Parking_Lot_System_C_
 {
-    public class CreditCardPayment : Payment
+    public class CreditCardPayment : Payment, IPayCharge
     {
         private const double PAYEMENTTAX = 0.85;
         public override double MakePayment(Ticket ticket)

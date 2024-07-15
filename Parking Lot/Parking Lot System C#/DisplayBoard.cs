@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Parking_Lot_System_C_
 {
-    public class DisplayBoard
+    public class DisplayBoard : IShowMessage
     {
         private string floorTitle;
         public DisplayBoard(string _floorTitle, ref Action<int, int ,int ,int, int> _showMessage)
