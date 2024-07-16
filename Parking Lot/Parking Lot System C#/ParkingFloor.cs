@@ -8,7 +8,7 @@ namespace Parking_Lot_System_C_
     public class ParkingFloor
     {
         private string title;
-        private IShowMessage displayBoard;
+        private IShowMessage showMessage;
         private CustomerInfoPortal customerInfoPortal;
         public List<HandiCappedSpot> handiCappedSpots { get; private set; }
         public List<CompactSpot> compactSpots  { get; private set; }
@@ -18,7 +18,7 @@ namespace Parking_Lot_System_C_
         private event Action<int, int, int, int, int> _showMessage;
         public ParkingFloor(string _title) {
             this.title = _title;
-            displayBoard = new DisplayBoard(title, ref _showMessage);
+            showMessage = new DisplayBoard(title, ref _showMessage);
             customerInfoPortal = new CustomerInfoPortal();
         }
 

@@ -10,8 +10,8 @@ namespace Parking_Lot_System_C_
         private IPayCharge payCharge;
         private DateTime StartCharging;
         private DateTime EndCharging;
-        public ElectricPanel(IPayCharge creditCardPayment) {
-            payCharge = creditCardPayment;
+        public ElectricPanel(IPayCharge iPayCharge) {
+            payCharge = iPayCharge;
             StartCharging = DateTime.Now;
             EndCharging = DateTime.Now;
         } 
