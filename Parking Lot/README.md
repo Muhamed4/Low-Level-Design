@@ -1,3 +1,13 @@
+# Design Parking Lot 
+
+> A parking lot, also known as a car park, is a designated area specifically designed for vehicle parking. In many countries where cars are a primary mode of transportation, parking lots are common in urban and suburban areas. Large venues such as shopping malls, sports stadiums, and megachurches often have extensive parking lots to accommodate numerous vehicles.
+
+
+
+![Parking Lot](Images/ParkingLot.jpg)
+
+
+
 ## Requirements :
 
 1. The parking lot should have multiple floors.
