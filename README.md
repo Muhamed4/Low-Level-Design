@@ -16,8 +16,10 @@ This repository is dedicated to my practice and exploration of low-level design 
 
 ## Resources :
 
-  * [Low Level Design](https://github.com/ashishps1/awesome-low-level-design?tab=readme-ov-file)
+  * [Awesome Low Level Design](https://github.com/ashishps1/awesome-low-level-design?tab=readme-ov-file)
 
   * [Low Level Design (Playlist)](https://youtube.com/playlist?list=PLAC2AM9O1C5KioUMeH9qIjbAV_RMmX8rd&si=3di9Y_1XFAzvdJpM)
+
+  * [How to approach Object Oriented Design Questions step by step](https://medium.com/@nrkapri/how-to-approach-object-oriented-design-questions-step-by-step-67ed6a5a30e5)
 
 ### Feel free to explore, contribute, and provide feedback!
