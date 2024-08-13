@@ -17,6 +17,7 @@
 
 ## Class Diagram :
 
+![Chess Game Class Diagram](Images/ChessGameClassDiagram.png)
 
 ## Resources :
 
