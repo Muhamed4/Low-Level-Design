@@ -9,7 +9,7 @@
 
 1. The system should support two online players to play a game of chess.
 
-2. A player can send invitation game to other player.
+2. A player can send challenge invitation to other player.
 
 3. All rules of international chess will be followed.
 
