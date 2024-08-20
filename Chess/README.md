@@ -28,8 +28,13 @@
 
 ## Use Case Diagram :
 
+![Chess Game Use Case Diagram](Images/ChessGameUseCase.png)
 
 ## Activity Diagram :
+
+![Chess Game Activity Diagram Part1](Images/ChessGameActivityDiagramPart1.png)
+
+![Chess Game Activity Diagram Part2](Images/ChessGameActivityDiagramPart2.png)
 
 
 ## Class Diagram :
