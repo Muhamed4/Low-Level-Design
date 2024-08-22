@@ -4,7 +4,6 @@
 
 ![Chess Game](Images/Chess.jpg)
 
-
 ## Requirements :
 
 1. The system should support two online players to play a game of chess.
@@ -36,10 +35,13 @@
 
 ![Chess Game Activity Diagram Part2](Images/ChessGameActivityDiagramPart2.png)
 
-
 ## Class Diagram :
 
 ![Chess Game Class Diagram](Images/ChessGameClassDiagram.png)
+
+## Entity Relationship Diagram :
+
+![Chess Game Entity Relationship Diagram](Images/ChessGameEntityRelationshipDiagram.png)
 
 ## Resources :
 
