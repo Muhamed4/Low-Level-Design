@@ -19,7 +19,7 @@ namespace Chess_C_.Models
         public string City { get; set; } = null!;
         public string Country { get; set; } = null!;
         public AccountStatus AccountStatus { get; set; }
-        public ICollection<PlayerPhone> Phones { get; set; } = null!;
+        public ICollection<PlayerPhone>? Phones { get; set; } = null!;
         public ICollection<Invitation>? SendInvitations { get; set;}
         public ICollection<Invitation>? ReceiveInvitations { get; set;}
         public ICollection<Move>? Moves { get; set; }
