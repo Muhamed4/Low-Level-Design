@@ -10,8 +10,15 @@ namespace Chess_C_.Models
         public Guid Id { get; set; }
         public DateTime Date { get; set; }
         public GameStatus Status { get; set; }
-        public ICollection<Player> Players { get; set; } = null!;
-        public ICollection<PlayerGame> PlayerGames { get; set; } = null!;
-        public ICollection<Move>? Moves{ get; set; }
+        public Board Board { get; set; }
+        public virtual ICollection<Player> Players { get; set; } = new List<Player>();
+        public virtual ICollection<PlayerGame> PlayerGames { get; set; } = new List<PlayerGame>();
+        public virtual ICollection<Move>? Moves{ get; set; } = new List<Move>();
+
+        public Game()
+        {
+            Status = GameStatus.ACTIVE;
+            Board = new Board();
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace Chess_C_.Data.Config
                 v => v.ToString(),
                 v => (GameStatus)Enum.Parse(typeof(GameStatus), v)
             );
+            builder.Ignore(x => x.Board);
             builder.HasMany(x => x.Players).WithMany(x => x.Games).UsingEntity<PlayerGame>();
             builder.HasCheckConstraint("CK_GAME_STATUS", "Status IN ('ACTIVE', 'WHITE_WIN', 'BLACK_WIN', 'DRAW', 'RESIGN')");
             builder.ToTable(name: "Games", schema: "ChessGame");

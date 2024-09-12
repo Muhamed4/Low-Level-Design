@@ -19,11 +19,11 @@ namespace Chess_C_.Models
         public string City { get; set; } = null!;
         public string Country { get; set; } = null!;
         public AccountStatus AccountStatus { get; set; }
-        public ICollection<PlayerPhone>? Phones { get; set; } = null!;
-        public ICollection<Invitation>? SendInvitations { get; set;}
-        public ICollection<Invitation>? ReceiveInvitations { get; set;}
-        public ICollection<Move>? Moves { get; set; }
-        public ICollection<Game>? Games { get; set; }
-        public ICollection<PlayerGame>? PlayerGames { get; set; }
+        public virtual ICollection<PlayerPhone>? Phones { get; set; } = null!;
+        public virtual ICollection<Invitation>? SendInvitations { get; set;}
+        public virtual ICollection<Invitation>? ReceiveInvitations { get; set;}
+        public virtual ICollection<Move>? Moves { get; set; }
+        public virtual ICollection<Game>? Games { get; set; }
+        public virtual ICollection<PlayerGame>? PlayerGames { get; set; }
     }
 }

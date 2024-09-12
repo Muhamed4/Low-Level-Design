@@ -17,5 +17,8 @@ namespace Chess_C_.Models
             SquareStatus = squareStatus;
             Piece = piece;
         }
+
+        public SquareStatus GetSquareStatus() => SquareStatus;
+        public bool HasPiece() => Piece is null ? false : true;
     }
 }

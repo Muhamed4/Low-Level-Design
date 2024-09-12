@@ -9,7 +9,7 @@ namespace Chess_C_.Models
     {
         public Pawn(PieceColor pieceColor, PieceRank rank)
         {
-            PieceType = PieceType.ROOK;
+            PieceType = PieceType.PAWN;
             PieceColor = pieceColor;
             PieceStatus = PieceStatus.FIGHT;
             PieceRank = rank;

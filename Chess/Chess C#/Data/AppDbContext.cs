@@ -18,23 +18,23 @@ namespace Chess_C_.Data
         public DbSet<PlayerGame> PlayerGames { get; set; }
         public DbSet<Move> Moves { get; set; }
         public DbSet<Invitation> Invitations { get; set; }
-        private AppDbContext() { }
+        // private AppDbContext() { }
         // Apply Singleton Design Pattern
-        public static AppDbContext Instance 
-        {
-            get 
-            {
-                // Using double checking for thread safety
-                if(dbContext == null) 
-                {
-                    lock (_lock) {
-                        if(dbContext == null)
-                            dbContext = new AppDbContext();
-                    }
-                }
-                return dbContext;
-            }
-        }
+        // public static AppDbContext Instance 
+        // {
+        //     get 
+        //     {
+        //         // Using double checking for thread safety
+        //         if(dbContext == null) 
+        //         {
+        //             lock (_lock) {
+        //                 if(dbContext == null)
+        //                     dbContext = new AppDbContext();
+        //             }
+        //         }
+        //         return dbContext;
+        //     }
+        // }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
